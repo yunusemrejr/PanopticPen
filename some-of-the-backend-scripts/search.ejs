@@ -1,0 +1,22 @@
+<%
+let content = `
+    <section>
+        <h2>Search Results for: ${query}</h2>
+        <ul>`;
+        
+books.forEach(book => {
+    content += `
+            <li>
+                <img src="${book.thumbnail}">
+                <a href="${book.infoLink}">
+                    ${book.title}
+                </a> by ${book.authors.join(', ')}
+            </li>`;
+});
+
+content += `
+        </ul>
+    </section>`;
+%>
+
+<%- include('layout', { pageTitle: 'Search Results', Content: content }) %>
